@@ -12,7 +12,7 @@ def execute():
         constants.APPLICATION_ID,
         constants.COMMAND_GUILD_ID
     )
-    print('registering commands: {}'.format(endpoint))
+    # print('registering commands: {}'.format(endpoint))
 
     # todo: 関数化
     commands = [

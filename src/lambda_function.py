@@ -23,9 +23,8 @@ def is_application_command(body):
     if body.get("type") == 2:
         return True
     return False
-    
+
 def lambda_handler(event, context):
-    print(f"event {event}") # debug print
     # verify the signature
     try:
         verify_signature(event=event)
@@ -35,8 +34,6 @@ def lambda_handler(event, context):
 
     # check if message is a ping
     body = event.get('body-json')
-    print(body)
-    
     try:
         if ping_pong(body):
             return register_command.execute()
