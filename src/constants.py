@@ -12,6 +12,18 @@ RESPONSE_TYPES =  {
                     "ACK_WITH_SOURCE": 5
                   }
 
+# command option types
+COMMAND_OPTION_TYPES = {
+    "SUB_COMMAND": 1,
+    "SUB_COMMAND_GROUP": 2,
+    "STRING": 3,
+    "INTEGER": 4,
+    "BOOLEAN": 5,
+    "USER": 6,
+    "CHANNEL": 7,
+    "ROLE": 8
+}
+
 # discord end point
 DISCORD_ENDPOINT = "https://discord.com/api/v9"
 
