@@ -1,6 +1,76 @@
 import constants
 import requests
 
+def initial_command()->dict:
+    return [
+        {
+            "name": "recruit",
+            "description": "募集チャンネルを作成します",
+            "options": [
+                {
+                    "type": constants.COMMAND_OPTION_TYPES["STRING"],
+                    "name": "channel_name",
+                    "description": "チャンネル名",
+                    "required": True             
+                },
+            ]
+        },
+        {
+            "name": "room",
+            "description": "セッションルームを作成します",
+            "options": [
+                {
+                    "type": constants.COMMAND_OPTION_TYPES["STRING"],
+                    "name": "channel_name",
+                    "description": "チャンネル名",
+                    "required": True             
+                },
+            ]
+        },
+        {
+            "name": "campaign",
+            "description": "キャンペーン用のセッションルームを作成します",
+            "options": [
+                {
+                    "type": constants.COMMAND_OPTION_TYPES["STRING"],
+                    "name": "channel_name",
+                    "description": "チャンネル名",
+                    "required": True             
+                },
+            ]
+        },
+        {
+            "name": "rename",
+            "description": "チャンネル名の変更を行います",
+            "options": [
+                {
+                    "type": constants.COMMAND_OPTION_TYPES["STRING"],
+                    "name": "channel_name",
+                    "description": "変更後のチャンネル名",
+                    "required": True             
+                },
+            ]
+        },
+        {
+            "name": "close",
+            "description": "セッションの募集を締め切ります",
+            "options": [
+            ]
+        },
+        {
+            "name": "delete",
+            "description": "セッションルームを削除します",
+            "options": [
+            ]
+        },
+        {
+            "name": "help",
+            "description": "kikimoraで出来ることを表示します",
+            "options": [
+            ]
+        }
+    ]
+
 def execute():
     headers = {
         "User-Agent": "discord-slash-commands-helloworld",
@@ -14,15 +84,7 @@ def execute():
     )
     # print('registering commands: {}'.format(endpoint))
 
-    # todo: 関数化
-    commands = [
-        {
-            "name": "help",
-            "description": "コマンド一覧を表示する",
-            "options": [
-            ]
-        }
-    ]
+    commands = initial_command()
     for c in commands:
         response = requests.post(url=endpoint, headers=headers, json=c)
         response.raise_for_status()
