@@ -7,10 +7,10 @@ class DeleteCommand(CommandBase):
     def __init__(self) -> None:
         super().__init__()
 
-    def validate(self, options: dict) -> None:
-        super().validate(options)
+    def validate(self, member: dict, options: dict) -> None:
+        super().validate(member, options)
 
-    def execute(self, options: dict)->dict:
+    def execute(self, member: dict, options: dict)->dict:
         text = 'DeleteCommand'
 
         return {

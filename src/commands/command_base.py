@@ -6,9 +6,9 @@ class CommandBase(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def validate(self, options: dict) -> None:
+    def validate(self, member: dict, options: dict) -> None:
         pass
 
     @abstractmethod
-    def execute(self, options: dict) -> dict:
+    def execute(self, member: dict, options: dict)->dict:
         pass

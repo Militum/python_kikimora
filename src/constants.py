@@ -24,6 +24,12 @@ COMMAND_OPTION_TYPES = {
     "ROLE": 8
 }
 
+# guild channel type
+GUILD_CHANNEL_TYPES = {
+    "GUILD_TEXT": 0,
+    "GUILD_VOICE": 2
+}
+
 # discord end point
 DISCORD_ENDPOINT = "https://discord.com/api/v9"
 
@@ -38,3 +44,18 @@ APPLICATION_ID = os.getenv('APPLICATION_ID')
 
 # discord guild id
 COMMAND_GUILD_ID = os.getenv('COMMAND_GUILD_ID')
+
+# recruit category
+RECRUIT_CATEGORY_ID = os.getenv('RECRUIT_CATEGORY_ID')
+
+# session room category
+SESSION_TEXT_CATEGORY_ID = os.getenv('SESSION_TEXT_CATEGORY_ID')
+
+# session voice chat category
+SESSION_VC_CATEGORY_ID = os.getenv('SESSION_VC_CATEGORY_ID')
+
+# campaign room category
+CAMPAIGN_TEXT_CATEGORY_ID = os.getenv('CAMPAIGN_TEXT_CATEGORY_ID')
+
+# campaign voice chat category
+CAMPAIGN_VC_CATEGORY_ID = os.getenv('CAMPAIGN_VC_CATEGORY_ID')
