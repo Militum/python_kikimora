@@ -41,7 +41,7 @@ def lambda_handler(event, context):
             initialize.execute()
             return constants.PING_PONG
         elif is_application_command(body):
-            return execute_command.execute(data=body.get('data'))
+            return execute_command.execute(member=body.get('member'), data=body.get('data'))
     except Exception as e:
         print(e)
         raise Exception(f"[UNAUTHORIZED] commands execution filed: {e}")

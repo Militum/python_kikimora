@@ -7,10 +7,10 @@ class HelpCommand(CommandBase):
     def __init__(self) -> None:
         super().__init__()
 
-    def validate(self, options: dict) -> None:
-        super().validate(options)
+    def validate(self, member: dict, options: dict) -> None:
+        super().validate(member, options)
 
-    def execute(self, options: dict)->dict:
+    def execute(self, member: dict, options: dict)->dict:
         help_text = '★忙しすぎるあなたに代わって教室を作成します。\n' \
             '全てのコマンドには入力補助がつきますのでご安心下さい。\n\n' \
             '** ● 募集を立てたいとき ● **\n' \
