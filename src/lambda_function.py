@@ -3,7 +3,7 @@ import bootstrap
 from nacl.signing import VerifyKey
 import constants
 from models import execute_command
-from models import register_command
+from models import initialize
 
 def verify_signature(event):
     raw_body = event.get("rawBody")
@@ -34,11 +34,14 @@ def lambda_handler(event, context):
 
     # check if message is a ping
     body = event.get('body-json')
+    print(body)
     try:
         if ping_pong(body):
-            return register_command.execute()
+            # 導入時に初期化コマンドを使えるようにする
+            initialize.execute()
+            return constants.PING_PONG
         elif is_application_command(body):
-            return execute_command.execute(options=body['data'])
+            return execute_command.execute(data=body.get('data'))
     except Exception as e:
         print(e)
         raise Exception(f"[UNAUTHORIZED] commands execution filed: {e}")
