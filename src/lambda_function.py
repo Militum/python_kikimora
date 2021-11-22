@@ -38,7 +38,7 @@ def lambda_handler(event, context):
     try:
         if ping_pong(body):
             # 導入時に初期化コマンドを使えるようにする
-            initialize.execute()
+            initialize.execute(member=body.get('member'))
             return constants.PING_PONG
         elif is_application_command(body):
             return execute_command.execute(member=body.get('member'), data=body.get('data'))
