@@ -2,7 +2,6 @@ __all__ = [
     'CommandBase',
     'RecruitCommand',
     'RoomCommand',
-    'CampaignCommand',
     'RenameCommand',
     'CloseCommand',
     'DeleteCommand',
@@ -14,7 +13,6 @@ __all__ = [
 ]
 
 from .command_base import CommandBase
-from .campaign_command import CampaignCommand
 from .close_command import CloseCommand
 from .delete_command import DeleteCommand
 from .help_command import HelpCommand
