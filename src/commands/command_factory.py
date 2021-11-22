@@ -2,7 +2,6 @@ from commands import CommandBase
 
 from commands import RecruitCommand
 from commands import RoomCommand
-from commands import CampaignCommand
 from commands import RenameCommand
 from commands import CloseCommand
 from commands import DeleteCommand
@@ -15,8 +14,6 @@ def create(command_name: str)->CommandBase:
         return RecruitCommand()
     elif command_name == 'room':
         return RoomCommand()
-    elif command_name == 'campaign':
-        return CampaignCommand()
     elif command_name == 'rename':
         return RenameCommand()
     elif command_name == 'close':
