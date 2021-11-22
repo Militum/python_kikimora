@@ -7,12 +7,10 @@ from commands import RenameCommand
 from commands import CloseCommand
 from commands import DeleteCommand
 from commands import HelpCommand
-
-#from commands import InitializeCommand
-#from commands import RegisterCommand
+from commands import RegisterCommand
 
 def create(command_name: str)->CommandBase:
-    
+
     if command_name == 'recruit':
         return RecruitCommand()
     elif command_name == 'room':
@@ -27,6 +25,8 @@ def create(command_name: str)->CommandBase:
         return DeleteCommand()
     elif command_name == 'help':
         return HelpCommand()
+    elif command_name == 'register':
+        return RegisterCommand()
 
     # todo 適合しなかった場合はHelpにするかエラーとするか決定する
     return HelpCommand()
