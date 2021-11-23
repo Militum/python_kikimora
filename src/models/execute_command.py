@@ -1,7 +1,7 @@
 from commands import command_factory
 
 # 共通バリデーション
-def validation(member:dict, data: dict)->bool:
+def validation(member: dict, data: dict)->bool:
     if 'user' not in member:
         return False
 
@@ -10,7 +10,7 @@ def validation(member:dict, data: dict)->bool:
 
     return True
 
-def execute(member:dict, data:dict)->dict:
+def execute(member: dict, data: dict, channel_id: str)->dict:
     if validation(member=member, data=data) == False:
         raise Exception("不正アクセス")
 
@@ -24,4 +24,4 @@ def execute(member:dict, data:dict)->dict:
 
     command.validate(member=member, options=options)
 
-    return command.execute(member=member, options=options)
+    return command.execute(member=member, options=options, channel_id=channel_id)

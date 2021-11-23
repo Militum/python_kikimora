@@ -38,10 +38,17 @@ def lambda_handler(event, context):
     try:
         if ping_pong(body):
             # 導入時に初期化コマンドを使えるようにする
-            initialize.execute(member=body.get('member'))
+            initialize.execute(
+                member=body.get('member'),
+                channel_id=body.get('channel_id')
+            )
             return constants.PING_PONG
         elif is_application_command(body):
-            return execute_command.execute(member=body.get('member'), data=body.get('data'))
+            return execute_command.execute(
+                member=body.get('member'),
+                data=body.get('data'),
+                channel_id=body.get('channel_id')
+            )
     except Exception as e:
         print(e)
         raise Exception(f"[UNAUTHORIZED] commands execution filed: {e}")

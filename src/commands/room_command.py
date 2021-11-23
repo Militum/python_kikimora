@@ -23,7 +23,7 @@ class RoomCommand(CommandBase):
 
         super().validate(member, options)
 
-    def execute(self, member: dict, options: dict)->dict:
+    def execute(self, member: dict, options: dict, channel_id: str)->dict:
         channel_name = options.get('channel_name')
         is_oneoff_session = options.get('is_oneoff')
         is_voice_session = options.get('is_voice_session', True)
