@@ -10,5 +10,5 @@ class CommandBase(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def execute(self, member: dict, options: dict)->dict:
+    def execute(self, member: dict, options: dict, channel_id: str)->dict:
         pass

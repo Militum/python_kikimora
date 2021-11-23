@@ -19,7 +19,7 @@ class RecruitCommand(CommandBase):
 
         super().validate(member, options)
 
-    def execute(self, member: dict, options: dict)->dict:
+    def execute(self, member: dict, options: dict, channel_id: str)->dict:
         channel_name = options.get('channel_name')
         response = create_channnel.execute(
             channel_name,

@@ -10,7 +10,7 @@ class HelpCommand(CommandBase):
     def validate(self, member: dict, options: dict) -> None:
         super().validate(member, options)
 
-    def execute(self, member: dict, options: dict)->dict:
+    def execute(self, member: dict, options: dict, channel_id: str)->dict:
         help_text = '★忙しすぎるあなたに代わって教室を作成します。\n' \
             '全てのコマンドには入力補助がつきますのでご安心下さい。\n\n' \
             '** ● 募集を立てたいとき ● **\n' \
