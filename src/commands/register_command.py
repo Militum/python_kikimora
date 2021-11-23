@@ -82,9 +82,6 @@ class RegisterCommand(CommandBase):
             # }
         ]
 
-        update_commands = [
-        ]
-
         headers = {
             "User-Agent": "discord-slash-commands-helloworld",
             "Content-Type": "application/json",
@@ -99,10 +96,6 @@ class RegisterCommand(CommandBase):
 
         for c in add_commands:
             response = requests.post(url=endpoint, headers=headers, json=c)
-            response.raise_for_status()
-
-        for c in update_commands:
-            response = requests.patch(url=endpoint, headers=headers, json=c)
             response.raise_for_status()
 
         initial_text = 'コマンド登録完了'
