@@ -1,4 +1,5 @@
 import constants
+import headers
 import requests
 from commands import CommandBase
 
@@ -82,11 +83,6 @@ class RegisterCommand(CommandBase):
             # }
         ]
 
-        headers = {
-            "User-Agent": "discord-slash-commands-helloworld",
-            "Content-Type": "application/json",
-            "Authorization": 'Bot {}'.format(constants.DISCORD_TOKEN) # Botを入れないとBotとして認証されない
-        }
         endpoint='{}/applications/{}/guilds/{}/commands'.format(
             constants.DISCORD_ENDPOINT,
             constants.APPLICATION_ID,
@@ -95,7 +91,7 @@ class RegisterCommand(CommandBase):
         # print('registering commands: {}'.format(endpoint))
 
         for c in add_commands:
-            response = requests.post(url=endpoint, headers=headers, json=c)
+            response = requests.post(url=endpoint, headers=headers.HEADERS, json=c)
             response.raise_for_status()
 
         initial_text = 'コマンド登録完了'
